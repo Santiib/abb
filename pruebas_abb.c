@@ -55,6 +55,7 @@ void pruebas_lista_alumno(){
 		return true;
 	}
 	print_test("Se corre el iter interno (+1 a los valores)", abb_in_order(abb->raiz, visitar(), NULL, true);
+	n1++, n2++, n3++;
 	print_test("obteber c1 da n1+1", abb_obtener(abb, c1) == &n1);
 	print_test("obteber c2 da n2+1", abb_obtener(abb, c2) == &n2);
 	print_test("obteber c3 da n3+1", abb_obtener(abb, c3) == &n3);
