@@ -10,6 +10,7 @@ void pruebas_lista_alumno(){
 	print_test("abb vacio fue creado",true);
 	print_test("abb cantidad es igual 0", abb_cantidad(abb) == 0);
 	
+	
 	printf("%s","~~~ ARBOL ~~~");
 	int n1 = 7, n2 = 1, n3 = 3;
 	const char* c1 = "c1", c2 = "c2", c3 = "c3";
@@ -29,7 +30,8 @@ void pruebas_lista_alumno(){
 	print_test("guardar n2 en c2", abb_guardar(abb, c2, &n2));
 	print_test("guardar n3 en c3", abb_guardar(abb, c3, &n3));
 	
-	printf("%s","~~~ ITERADOR ~~~");
+	
+	printf("%s","~~~ ITERADOR EXTERNO ~~~");
 	abb_iter_t *iter = abb_iter_crear(abb);
 	print_test("abb iter fue creado",true);
 	
@@ -42,6 +44,20 @@ void pruebas_lista_alumno(){
 	print_test("iter ver actual es NULL", abb_iter_in_ver_actual(iter) == NULL);
 	print_test("iter avanzar es false", !abb_iter_in_avanzar(iter));
 	print_test("iter al final", abb_iter_in_al_final(iter));
+	
+	
+	printf("%s","~~~ ITERADOR INTERNO~~~");
+	bool visitar(const char *clave, void *valor, void *extra){
+		if((clave == NULL) || (valor == NULL)){
+			return false;
+		}
+		valor++;
+		return true;
+	}
+	print_test("Se corre el iter interno (+1 a los valores)", abb_in_order(abb->raiz, visitar(), NULL, true);
+	print_test("obteber c1 da n1+1", abb_obtener(abb, c1) == &n1);
+	print_test("obteber c2 da n2+1", abb_obtener(abb, c2) == &n2);
+	print_test("obteber c3 da n3+1", abb_obtener(abb, c3) == &n3);
 	
 	
 	printf("%s","~~~ DESTRUIR ~~~");
