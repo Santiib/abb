@@ -6,7 +6,12 @@
 void pruebas_lista_alumno(){
 	
 	printf("%s","~~~ CREAR ~~~");
-	abb_t *abb = abb_crear(abb_comparar_clave_t cmp, NULL);
+	
+	int comparar(char *str1, char *str2){
+		return strncmp(str1, str2, 3);
+	}
+	
+	abb_t *abb = abb_crear(abb_comparar_clave_t comparar, NULL);
 	print_test("abb vacio fue creado",true);
 	print_test("abb cantidad es igual 0", abb_cantidad(abb) == 0);
 	
@@ -54,7 +59,7 @@ void pruebas_lista_alumno(){
 		valor++;
 		return true;
 	}
-	print_test("Se corre el iter interno (+1 a los valores)", abb_in_order(abb->raiz, visitar(), NULL, true);
+	print_test("Se corre el iter interno (+1 a los valores)", abb_in_order(abb->raiz, visitar, NULL, true);
 	n1++, n2++, n3++;
 	print_test("obteber c1 da n1+1", abb_obtener(abb, c1) == &n1);
 	print_test("obteber c2 da n2+1", abb_obtener(abb, c2) == &n2);
